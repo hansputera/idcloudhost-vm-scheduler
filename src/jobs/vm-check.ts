@@ -15,7 +15,7 @@ export const vmCheck = async (vm: VmAction) => {
     const currentDate = dayjs().tz(vm.timezone);
     const timeFormat = currentDate.format('HH:mm');
 
-    if (vm.triggeredTime === timeFormat) {
+    if (vm.triggeredTime === timeFormat || vm.toleranceTimes.includes(timeFormat)) {
         switch(vm.action) {
             case VmActions.Start:
                 await startVm(vm.vmUuid);
