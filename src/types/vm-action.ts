@@ -6,4 +6,5 @@ export type VmAction = {
     timezone: string;
     triggeredTime: string; // Hour:Minute
     toleranceTimes: string[]; // [Hour:Minute]
+    location: string; // sgp02, jkt02
 }

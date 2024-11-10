@@ -18,10 +18,10 @@ export const vmCheck = async (vm: VmAction) => {
     if (vm.triggeredTime === timeFormat || vm.toleranceTimes.includes(timeFormat)) {
         switch(vm.action) {
             case VmActions.Start:
-                await startVm(vm.vmUuid);
+                await startVm(vm.vmUuid, vm.location);
                 return `VM ${vm.vmUuid} started [current=${timeFormat}, trigger=${vm.triggeredTime}]`;
             case VmActions.Stop:
-                await stopVm(vm.vmUuid);
+                await stopVm(vm.vmUuid, vm.location);
                 return `VM ${vm.vmUuid} stopped [current=${timeFormat}, trigger=${vm.triggeredTime}]`;
             default:
                 return `VM ${vm.vmUuid} unknown action ${vm.action} [current=${timeFormat}, trigger=${vm.triggeredTime}]`;
