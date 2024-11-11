@@ -8,12 +8,12 @@ import { idcloudhostHttpClient } from "../common/idcloudhost"
  */
 export const startVm = async (vmUuid: string, vmLocation: string): Promise<boolean> => {
     const response = await idcloudhostHttpClient.postForm<{
-        errors: {
-            Error: string;
-        };
-    }>(`/v1/${encodeURIComponent(vmLocation)}/user-resource/vm/start`, {
-        uuid: vmUuid,
+        status: 'running'
+    }>(`/v1/${encodeURIComponent(vmLocation)}/user-resource/vm/start`, undefined, {
+        params: {
+            uuid: vmUuid,
+        },
     });
 
-    return !(Boolean(response.data.errors?.Error));
+    return response.data.status === 'running';
 }
