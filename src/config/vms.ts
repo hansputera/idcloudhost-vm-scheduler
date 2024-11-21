@@ -14,7 +14,7 @@ export const vmActions: Array<VmAction> = [
         action: VmActions.Start,
         timezone: 'Asia/Jakarta',
         triggeredTime: '06:00',
-        toleranceTimes: ['06:01', '02:04'],
+        toleranceTimes: ['06:01'],
         location: 'sgp01',
     },
 ];
